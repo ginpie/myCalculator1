@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="380dp"
+        android:layout_height="120dp"
+        android:gravity="bottom|end"
+        android:hint="这是一个炫酷的计算器"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="@+id/button0"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/c"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/buttonInverse"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/inverse"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toEndOf="@+id/buttonClear"
+        app:layout_constraintTop_toTopOf="@+id/buttonClear" />
+
+    <Button
+        android:id="@+id/buttonBackspace"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/backspace"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/button3"
+        app:layout_constraintTop_toTopOf="@+id/buttonInverse" />
+
+    <Button
+        android:id="@+id/buttonPlus"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton1"
+        android:text="@string/plus"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/buttonMinus"
+        app:layout_constraintTop_toTopOf="@+id/buttonBackspace" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/_1"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClear" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/_2"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/buttonInverse"
+        app:layout_constraintTop_toTopOf="@+id/button1" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/_3"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/button6"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/buttonMinus"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton1"
+        android:text="@string/minus"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/buttonMultiply"
+        app:layout_constraintTop_toTopOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/_4"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/_5"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/_6"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/button9"
+        app:layout_constraintTop_toTopOf="@+id/button5" />
+
+    <Button
+        android:id="@+id/buttonMultiply"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton1"
+        android:text="@string/multiply"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/buttonDivide"
+        app:layout_constraintTop_toTopOf="@+id/button6" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/_7"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/button0"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/_8"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/button5"
+        app:layout_constraintTop_toTopOf="@+id/button7" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/_9"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/buttonDot"
+        app:layout_constraintTop_toTopOf="@+id/button8" />
+
+    <Button
+        android:id="@+id/buttonDivide"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundbutton1"
+        android:text="@string/divide"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="@+id/buttonEqual"
+        app:layout_constraintTop_toTopOf="@+id/button9" />
+
+    <Button
+        android:id="@+id/button0"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/_0"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+    <Button
+        android:id="@+id/buttonDot"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/dot"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toEndOf="@+id/button0"
+        app:layout_constraintTop_toTopOf="@+id/button0" />
+
+    <Button
+        android:id="@+id/buttonEqual"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/equal"
+        android:textSize="30sp"
+        android:onClick="doSubmit"
+        app:layout_constraintStart_toEndOf="@+id/buttonDot"
+        app:layout_constraintTop_toTopOf="@+id/buttonDot" />
+
+</android.support.constraint.ConstraintLayout>
