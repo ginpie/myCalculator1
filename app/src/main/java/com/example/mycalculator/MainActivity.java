@@ -47,31 +47,31 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
                 display.setText(now_show + "2");
                 break;
             case R.id.button3:
-                display.setText(now_show+"3");
+                display.setText(now_show + "3");
                 break;
             case R.id.button4:
-                display.setText(now_show+"4");
+                display.setText(now_show + "4");
                 break;
             case R.id.button5:
-                display.setText(now_show+"5");
+                display.setText(now_show + "5");
                 break;
             case R.id.button6:
-                display.setText(now_show+"6");
+                display.setText(now_show + "6");
                 break;
             case R.id.button7:
-                display.setText(now_show+"7");
+                display.setText(now_show + "7");
                 break;
             case R.id.button8:
-                display.setText(now_show+"8");
+                display.setText(now_show + "8");
                 break;
             case R.id.button9:
-                display.setText(now_show+"9");
+                display.setText(now_show + "9");
                 break;
             case R.id.buttonMultiply:
-                display.setText(now_show+"*");
+                display.setText(now_show + "*");
                 break;
             case R.id.buttonDivide:
-                display.setText(now_show+"/");
+                display.setText(now_show + "/");
                 if(clear_flag){
                     clear_flag = false;
                     now_show = "";
@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
                 display.setText("");
                 break;
         }
-
     }
 
     private void getResult() {
