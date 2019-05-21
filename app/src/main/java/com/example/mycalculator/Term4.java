@@ -12,10 +12,9 @@ public class Term4 {
         _op = Operation.None;
     }
 
-    public Term4(Term4 term4, Operation op, Factor factor) {
+    public Term4(Term4 term4, Operation op) {
         _term4 = term4;
         _op = op;
-        _factor = factor;
     }
 
     public String toString() {
@@ -25,13 +24,13 @@ public class Term4 {
     public double value () {
         switch (_op) {
             case Factorial:
-                return fact(_term4.value());
+                return factorial(_term4.value());
             default:
-                return _term4.value();
+                return _factor.value();
         }
     }
 
-    public double fact(double n) {
+    public double factorial(double n) {
         int nt = (int) n;
         if (nt!=n){
             throw new ArithmeticException("Math error");

@@ -1,5 +1,11 @@
 package com.example.mycalculator;
 
+/*
+ Tokenizer
+ Input:
+
+ */
+
 public class Tokenizer {
     private String _buffer;
 
@@ -34,16 +40,36 @@ public class Tokenizer {
         if(_buffer.isEmpty())
             return null;
         char firstChar = _buffer.charAt(0);
-        if(firstChar=='+')
+
+        if(firstChar == '+')
             return new TokenResult("+", 1, Token.Type.Add);
-        if(firstChar=='-')
+        if(firstChar == '-')
             return new TokenResult("-", 1, Token.Type.Minus);
-
-
         if(firstChar == '*')
             return new TokenResult("*",1,Token.Type.Multiply);
         if(firstChar == '/')
             return new TokenResult("/",1,Token.Type.Divide);
+
+        if(Character.isLetter(firstChar)) {
+            String str = "";
+            int i = 0;
+            while (i<_buffer.length() && Character.isLetter(_buffer.charAt(i))) {
+                Character c = _buffer.charAt(i);
+                if(Character.isLetter(c)){
+                    str += "" + c;
+                    i++;
+                }
+            }
+            if (firstChar=='s'){
+                return new TokenResult("sin", 3, Token.Type.Sin);
+            }
+            if (firstChar=='t'){
+                return new TokenResult("tan", 3, Token.Type.Tan);
+            }
+            if (firstChar=='c'){
+                return str.charAt(2) == 's' ? new TokenResult("cos", 3, Token.Type.Cos) : new TokenResult("cot", 3, Token.Type.Cot);
+            }
+        }
 
         if(Character.isDigit(firstChar)) {
             String num = "";
@@ -56,6 +82,14 @@ public class Tokenizer {
                 }
             }
             return new TokenResult(num, i, Token.Type.Lit);
+        }
+
+        if (firstChar=='!') {
+            return new TokenResult("!", 1, Token.Type.Factorial);
+        }
+
+        if (firstChar=='^') {
+            return new TokenResult("^", 1, Token.Type.Power);
         }
 
         if(firstChar == '(')
