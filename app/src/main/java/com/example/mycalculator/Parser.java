@@ -83,7 +83,7 @@ public class Parser {
     public Factor parseFactor() {
         while (_tokenizer.hasNext()) {
             if (_tokenizer.next().type() == Token.Type.Lit) {
-                Lit lit = new Lit(Integer.parseInt(_tokenizer.takeNext().token()));
+                Lit lit = new Lit(Double.parseDouble(_tokenizer.takeNext().token()));
 
                 // check if trigonometric function happens after numbers
                 if (_tokenizer.hasNext()){
