@@ -20,8 +20,8 @@ public class Parser {
     public Exp parse() {
         // Parse term1
         Exp exp = new Exp(parseTerm1());
-        // Check if more terms to parse
-        if (_tokenizer.hasNext() &&  (_tokenizer.next().type() == Token.Type.Add
+        // Check if more term1s to parse
+        while (_tokenizer.hasNext() &&  (_tokenizer.next().type() == Token.Type.Add
                 || _tokenizer.next().type() == Token.Type.Minus)) {
             Token.Type op = _tokenizer.takeNext().type();
             // Merge previous term into factor
@@ -41,29 +41,31 @@ public class Parser {
     }
 
     public Term2 parseTerm2() {
-        Term2 term2 = new Term2(parseTerm3());
+
         while (_tokenizer.hasNext() && (_tokenizer.next().type() == Token.Type.Sin || _tokenizer.next().type() == Token.Type.Cos
                 || _tokenizer.next().type() == Token.Type.Tan || _tokenizer.next().type() == Token.Type.Cot)) {
+
             Token.Type op = _tokenizer.takeNext().type();
             if (op == Token.Type.Sin) {
-                term2 = new Term2(term2, Operation.Sin);
+                return new Term2(parseTerm2(), Operation.Sin);
             }
             if (op == Token.Type.Cos) {
-                term2 = new Term2(term2, Operation.Cos);
+                return new Term2(parseTerm2(), Operation.Cos);
             }
             if (op == Token.Type.Tan) {
-                term2 = new Term2(term2, Operation.Tan);
+                return new Term2(parseTerm2(), Operation.Tan);
             }
             if (op == Token.Type.Cot) {
-                term2 = new Term2(term2, Operation.Cot);
+                return new Term2(parseTerm2(), Operation.Cot);
             }
         }
-        return term2;
+        return new Term2(parseTerm3());
     }
 
     public Term3 parseTerm3() {
         Term3 term3 = new Term3(parseTerm4());
-        while (_tokenizer.hasNext() && _tokenizer.next().type() == Token.Type.Power) {
+        while (_tokenizer.hasNext() && (_tokenizer.next().type() == Token.Type.Power)) {
+            _tokenizer.takeNext();
             term3 = new Term3(term3, Operation.Power, parseTerm4());
         }
         return term3;
@@ -71,16 +73,25 @@ public class Parser {
 
     public Term4 parseTerm4() {
         Term4 term4 = new Term4(parseFactor());
-        while (_tokenizer.hasNext() && _tokenizer.next().type() == Token.Type.Factorial) {
+        while (_tokenizer.hasNext() && (_tokenizer.next().type() == Token.Type.Factorial)) {
+            _tokenizer.takeNext();
             term4 = new Term4(term4, Operation.Factorial);
         }
         return term4;
     }
 
     public Factor parseFactor() {
-        if (_tokenizer.hasNext()) {
+        while (_tokenizer.hasNext()) {
             if (_tokenizer.next().type() == Token.Type.Lit) {
                 Lit lit = new Lit(Integer.parseInt(_tokenizer.takeNext().token()));
+
+                // check if trigonometric function happens after numbers
+                if (_tokenizer.hasNext()){
+                    if (_tokenizer.next().type()==Token.Type.Sin || _tokenizer.next().type()==Token.Type.Cos || _tokenizer.next().type()==Token.Type.Tan || _tokenizer.next().type()==Token.Type.Cot) {
+                        throw new IllegalArgumentException("Syntax Error!");
+                    }
+                }
+
                 return new Factor(lit);
             }
             if (_tokenizer.next().type() == Token.Type.LeftBracket) {
@@ -92,5 +103,4 @@ public class Parser {
         }
         return null;
     }
-
 }
