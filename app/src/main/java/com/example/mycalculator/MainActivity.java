@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
 
     public void doSubmit(View view) {
         int id = view.getId();
+        if (clear_flag == true){
+            clear_flag = false;
+            display.setText("");
+        }
         String now_show = display.getText().toString();
 
         if (id==R.id.buttonEqual) {
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
             Exp exp = parser.parse();
             display.setText(exp.toString() + " = " + exp.value());
             clear_flag = true;
+            return;
         }
 
         switch (id) {
