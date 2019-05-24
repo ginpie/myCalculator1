@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
                 display.setText(now_show + " 8");break;
             case R.id.button9:
                 display.setText(now_show + " 9");break;
+            case R.id.buttonDot:
+                display.setText(now_show + " .");break;
+
             case R.id.buttonMultiply:
                 display.setText(now_show + " *");break;
             case R.id.buttonDivide:
@@ -66,14 +69,14 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
                 display.setText(now_show + " +");break;
             case R.id.buttonMinus:
                 display.setText(now_show + " -");break;
-            case R.id.buttonDot:
-                display.setText(now_show + " .");break;
+
             case R.id.buttonBackspace:
                 now_show = now_show.substring(0,now_show.length()-1);
                 display.setText(now_show);break;
             case R.id.buttonClear:
                 now_show = "";
                 display.setText(now_show);break;
+
             case R.id.buttonSin:
                 display.setText(now_show + " Sin");break;
             case R.id.buttonCos:
@@ -82,7 +85,10 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
                 display.setText(now_show + " Tan");break;
             case R.id.buttonCot:
                 display.setText(now_show + " Cot");break;
-
+            case R.id.buttonPower:
+                display.setText(now_show + "^");break;
+            case R.id.buttonFactor:
+                display.setText(now_show + "!");break;
         }
     }
 
