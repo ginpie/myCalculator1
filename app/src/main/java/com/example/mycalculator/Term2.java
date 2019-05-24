@@ -20,15 +20,16 @@ public class Term2 {
     }
 
     public double value () {
+        double R_to_D = Math.PI/180;
         switch (_op) {
             case Sin:
-                return Math.sin(_term2.value());
+                return ((double)Math.round(Math.sin(_term2.value() * R_to_D) * 1000)) / 1000;
             case Cos:
-                return Math.cos(_term2.value());
+                return ((double)Math.round(Math.cos(_term2.value() * R_to_D) * 1000)) / 1000;
             case Tan:
-                return Math.tan(_term2.value());
+                return ((double)Math.round(Math.tan(_term2.value() * R_to_D) * 1000)) / 1000;
             case Cot:
-                return 1.0/Math.tan(_term2.value());
+                return 1.0/((double)Math.round(Math.tan(_term2.value() * R_to_D) * 1000)) / 1000;
             default:
                 return _term3.value();
         }
