@@ -74,12 +74,10 @@ public class Tokenizer {
         if(Character.isDigit(firstChar)) {
             String num = "";
             int i = 0;
-            while (i<_buffer.length() && Character.isDigit(_buffer.charAt(i))) {
-                Character digit = _buffer.charAt(i);
-                if(Character.isDigit(digit)){
-                    num += "" + digit;
-                    i++;
-                }
+            while (i<_buffer.length() && (Character.isDigit(_buffer.charAt(i)) || _buffer.charAt(i)=='.')) {
+                num += "" + _buffer.charAt(i);
+                i++;
+
             }
             return new TokenResult(num, i, Token.Type.Lit);
         }

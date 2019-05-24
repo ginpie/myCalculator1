@@ -4,6 +4,7 @@ public class Term1 {
     Term1 _term1 = null;
     Term2 _term2 = null;
     Operation _op = null;
+    int prec = 1000;
 
     public Term1(Term2 term2) {
         _term2 = term2;
@@ -23,11 +24,15 @@ public class Term1 {
     public double value () {
         switch (_op) {
             case Mult:
-                return _term1.value() * _term2.value();
+                return precision(_term1.value() * _term2.value(), prec);
             case Div:
-                return _term1.value() / _term2.value();
+                return precision(_term1.value() / _term2.value(), prec);
             default:
                 return _term2.value();
         }
+    }
+
+    public double precision(double input, int prec) {
+        return ((double)Math.round(input * prec))/prec;
     }
 }

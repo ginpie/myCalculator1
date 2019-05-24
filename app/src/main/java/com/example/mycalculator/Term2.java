@@ -4,6 +4,7 @@ public class Term2 {
     Term2 _term2 = null;
     Term3 _term3 = null;
     Operation _op = null;
+    int prec = 1000;
 
     public Term2(Term3 term3) {
         _term3 = term3;
@@ -23,15 +24,19 @@ public class Term2 {
         double R_to_D = Math.PI/180;
         switch (_op) {
             case Sin:
-                return ((double)Math.round(Math.sin(_term2.value() * R_to_D) * 1000)) / 1000;
+                return precision(Math.sin(_term2.value() * R_to_D), prec);
             case Cos:
-                return ((double)Math.round(Math.cos(_term2.value() * R_to_D) * 1000)) / 1000;
+                return precision(Math.cos(_term2.value() * R_to_D), prec);
             case Tan:
-                return ((double)Math.round(Math.tan(_term2.value() * R_to_D) * 1000)) / 1000;
+                return precision(Math.tan(_term2.value() * R_to_D), prec);
             case Cot:
-                return 1.0/((double)Math.round(Math.tan(_term2.value() * R_to_D) * 1000)) / 1000;
+                return precision(1.0 / (Math.sin(_term2.value() * R_to_D)), prec);
             default:
                 return _term3.value();
         }
+    }
+
+    public double precision(double input, int prec) {
+        return ((double)Math.round(input * prec))/prec;
     }
 }

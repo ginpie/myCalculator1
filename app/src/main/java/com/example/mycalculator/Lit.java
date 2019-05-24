@@ -1,17 +1,17 @@
 package com.example.mycalculator;
 
 public class Lit {
-    private int _value = 0;
+    private double _value = 0;
 
-    public Lit(int value) {
+    public Lit(double value) {
         _value = value;
     }
 
-    public int value() {
+    public double value() {
         return _value;
     }
 
     public String toString() {
-        return Integer.toString(_value);
+        return Double.toString(_value);
     }
 }
