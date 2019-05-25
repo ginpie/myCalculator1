@@ -1,5 +1,6 @@
 package com.example.mycalculator;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -81,20 +82,11 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
             case R.id.buttonClear:
                 now_show = "";
                 display.setText(now_show);break;
-
-            case R.id.buttonSin:
-                display.setText(now_show + " Sin");break;
-            case R.id.buttonCos:
-                display.setText(now_show + " Cos");break;
-            case R.id.buttonTan:
-                display.setText(now_show + " Tan");break;
-            case R.id.buttonCot:
-                display.setText(now_show + " Cot");break;
-            case R.id.buttonPower:
-                display.setText(now_show + "^");break;
-            case R.id.buttonFactor:
-                display.setText(now_show + "!");break;
         }
     }
-
+    public void doswitch(View view) {
+        Intent n = new Intent();
+        n.setClass(MainActivity.this,WelcomActivity.class);
+        startActivity(n);
+    }
 }
