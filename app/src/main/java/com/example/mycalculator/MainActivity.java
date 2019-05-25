@@ -1,9 +1,9 @@
 package com.example.mycalculator;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -26,18 +26,24 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
 
     public void doSubmit(View view) {
         int id = view.getId();
-        if (clear_flag == true){
+        if (clear_flag && id!=R.id.buttonEqual){
             clear_flag = false;
-            display.setText("");
+            display.setText(" ");
         }
         String now_show = display.getText().toString();
 
-        if (id==R.id.buttonEqual) {
+        if (id==R.id.buttonEqual && !clear_flag) {
             Tokenizer tokenizer = new Tokenizer();
             Parser parser = new Parser(tokenizer);
             tokenizer.setBuffer(now_show);
-            Exp exp = parser.parse();
-            display.setText(exp.toString() + " = " + exp.value());
+            try {
+                Exp exp = parser.parse();
+                display.setText(exp.toString() + " = " + exp.value());
+            } catch (IllegalArgumentException e){
+                display.setText("Syntax Error!");
+            } catch (ArithmeticException e){
+                display.setText("Math Error!");
+            }
             clear_flag = true;
             return;
         }
@@ -67,9 +73,9 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
                 display.setText(now_show + ".");break;
 
             case R.id.buttonMultiply:
-                display.setText(now_show + "*");break;
+                display.setText(now_show + "x");break;
             case R.id.buttonDivide:
-                display.setText(now_show + "/");break;
+                display.setText(now_show + "÷");break;
             case R.id.buttonPlus:
                 display.setText(now_show + "+");break;
             case R.id.buttonMinus:
@@ -83,18 +89,24 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
                 display.setText(now_show);break;
 
             case R.id.buttonSin:
-                display.setText(now_show + "Sin");break;
+                display.setText(now_show + "sin");break;
             case R.id.buttonCos:
-                display.setText(now_show + "Cos");break;
+                display.setText(now_show + "cos");break;
             case R.id.buttonTan:
-                display.setText(now_show + "Tan");break;
+                display.setText(now_show + "tan");break;
             case R.id.buttonCot:
-                display.setText(now_show + "Cot");break;
+                display.setText(now_show + "cot");break;
             case R.id.buttonPower:
                 display.setText(now_show + "^");break;
             case R.id.buttonFactor:
                 display.setText(now_show + "!");break;
         }
+    }
+
+    public void doswitch(View view) {
+        Intent n = new Intent();
+        n.setClass(MainActivity.this, ScientificActivity.class);
+        startActivity(n);
     }
 
 }

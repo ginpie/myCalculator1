@@ -45,10 +45,10 @@ public class Tokenizer {
             return new TokenResult("+", 1, Token.Type.Add);
         if(firstChar == '-')
             return new TokenResult("-", 1, Token.Type.Minus);
-        if(firstChar == '*')
-            return new TokenResult("*",1,Token.Type.Multiply);
-        if(firstChar == '/')
-            return new TokenResult("/",1,Token.Type.Divide);
+        if(firstChar == 'x')
+            return new TokenResult("x",1,Token.Type.Multiply);
+        if(firstChar == '÷')
+            return new TokenResult("÷",1,Token.Type.Divide);
 
         if(Character.isLetter(firstChar)) {
             String str = "";

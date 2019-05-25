@@ -26,6 +26,9 @@ public class Term1 {
             case Mult:
                 return precision(_term1.value() * _term2.value(), prec);
             case Div:
+                if (_term2.value()==0.0){
+                    throw new ArithmeticException("Math Error!");
+                }
                 return precision(_term1.value() / _term2.value(), prec);
             default:
                 return _term2.value();

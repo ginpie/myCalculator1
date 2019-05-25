@@ -24,6 +24,10 @@ public class Parser {
         while (_tokenizer.hasNext() &&  (_tokenizer.next().type() == Token.Type.Add
                 || _tokenizer.next().type() == Token.Type.Minus)) {
             Token.Type op = _tokenizer.takeNext().type();
+            if (!_tokenizer.hasNext() || _tokenizer.next().type()==Token.Type.Add || _tokenizer.next().type()==Token.Type.Minus
+                    || _tokenizer.next().type()==Token.Type.Multiply || _tokenizer.next().type()==Token.Type.Divide){
+                throw new IllegalArgumentException("Syntax Error!");
+            }
             // Merge previous term into factor
             exp = new Exp(exp, op == Token.Type.Add ? Operation.Add : Operation.Sub, parseTerm1());
         }
@@ -35,6 +39,10 @@ public class Parser {
         while (_tokenizer.hasNext() &&  (_tokenizer.next().type() == Token.Type.Multiply
                 || _tokenizer.next().type() == Token.Type.Divide)){
             Token.Type op = _tokenizer.takeNext().type();
+            if (!_tokenizer.hasNext() || _tokenizer.next().type()==Token.Type.Add || _tokenizer.next().type()==Token.Type.Minus
+                    || _tokenizer.next().type()==Token.Type.Multiply || _tokenizer.next().type()==Token.Type.Divide){
+                throw new IllegalArgumentException("Syntax Error!");
+            }
             term1 = new Term1(term1, op == Token.Type.Multiply ? Operation.Mult : Operation.Div, parseTerm2());
         }
         return term1;
@@ -46,6 +54,10 @@ public class Parser {
                 || _tokenizer.next().type() == Token.Type.Tan || _tokenizer.next().type() == Token.Type.Cot)) {
 
             Token.Type op = _tokenizer.takeNext().type();
+            if (!_tokenizer.hasNext()){
+                throw new IllegalArgumentException("Syntax Error!");
+            }
+
             if (op == Token.Type.Sin) {
                 return new Term2(parseTerm2(), Operation.Sin);
             }

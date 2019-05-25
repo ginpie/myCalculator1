@@ -22,4 +22,10 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="awesome_calculator">Awesome calculator</string>
+    <string name="awesome_scientific_calculator">Awesome scientific calculator</string>
+    <string name="sin">Sin</string>
+    <string name="cos">Cos</string>
+    <string name="tan">Tan</string>
+    <string name="cot">Cot</string>
 </resources>
