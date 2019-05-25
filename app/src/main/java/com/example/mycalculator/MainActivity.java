@@ -44,36 +44,36 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
 
         switch (id) {
             case R.id.button0:
-                display.setText(now_show + " 0");break;
+                display.setText(now_show + "0");break;
             case R.id.button1:
-                display.setText(now_show + " 1");break;
+                display.setText(now_show + "1");break;
             case R.id.button2:
-                display.setText(now_show + " 2");break;
+                display.setText(now_show + "2");break;
             case R.id.button3:
-                display.setText(now_show + " 3");break;
+                display.setText(now_show + "3");break;
             case R.id.button4:
-                display.setText(now_show + " 4");break;
+                display.setText(now_show + "4");break;
             case R.id.button5:
-                display.setText(now_show + " 5");break;
+                display.setText(now_show + "5");break;
             case R.id.button6:
-                display.setText(now_show + " 6");break;
+                display.setText(now_show + "6");break;
             case R.id.button7:
-                display.setText(now_show + " 7");break;
+                display.setText(now_show + "7");break;
             case R.id.button8:
-                display.setText(now_show + " 8");break;
+                display.setText(now_show + "8");break;
             case R.id.button9:
-                display.setText(now_show + " 9");break;
+                display.setText(now_show + "9");break;
             case R.id.buttonDot:
-                display.setText(now_show + " .");break;
+                display.setText(now_show + ".");break;
 
             case R.id.buttonMultiply:
-                display.setText(now_show + " *");break;
+                display.setText(now_show + "*");break;
             case R.id.buttonDivide:
-                display.setText(now_show + " /");break;
+                display.setText(now_show + "/");break;
             case R.id.buttonPlus:
-                display.setText(now_show + " +");break;
+                display.setText(now_show + "+");break;
             case R.id.buttonMinus:
-                display.setText(now_show + " -");break;
+                display.setText(now_show + "-");break;
 
             case R.id.buttonBackspace:
                 now_show = now_show.substring(0,now_show.length()-1);
@@ -83,13 +83,13 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
                 display.setText(now_show);break;
 
             case R.id.buttonSin:
-                display.setText(now_show + " Sin");break;
+                display.setText(now_show + "Sin");break;
             case R.id.buttonCos:
-                display.setText(now_show + " Cos");break;
+                display.setText(now_show + "Cos");break;
             case R.id.buttonTan:
-                display.setText(now_show + " Tan");break;
+                display.setText(now_show + "Tan");break;
             case R.id.buttonCot:
-                display.setText(now_show + " Cot");break;
+                display.setText(now_show + "Cot");break;
             case R.id.buttonPower:
                 display.setText(now_show + "^");break;
             case R.id.buttonFactor:
