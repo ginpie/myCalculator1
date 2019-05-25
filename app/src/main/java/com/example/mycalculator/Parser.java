@@ -76,6 +76,11 @@ public class Parser {
         while (_tokenizer.hasNext() && (_tokenizer.next().type() == Token.Type.Factorial)) {
             _tokenizer.takeNext();
             term4 = new Term4(term4, Operation.Factorial);
+            if (_tokenizer.hasNext()) {
+                if (_tokenizer.next().type()==Token.Type.Lit) {
+                    throw new IllegalArgumentException("Syntax Error!");
+                }
+            }
         }
         return term4;
     }
@@ -83,7 +88,7 @@ public class Parser {
     public Factor parseFactor() {
         while (_tokenizer.hasNext()) {
             if (_tokenizer.next().type() == Token.Type.Lit) {
-                Lit lit = new Lit(Integer.parseInt(_tokenizer.takeNext().token()));
+                Lit lit = new Lit(Double.parseDouble(_tokenizer.takeNext().token()));
 
                 // check if trigonometric function happens after numbers
                 if (_tokenizer.hasNext()){
