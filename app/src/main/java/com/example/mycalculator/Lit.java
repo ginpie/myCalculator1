@@ -8,7 +8,6 @@ public class Lit {
     }
 
     public double value() {
-        System.out.println("Lit: "+_value);
         return _value;
     }
 

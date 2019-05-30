@@ -61,7 +61,7 @@ public class ScientificActivity extends AppCompatActivity {
                 Exp exp = parser.parse();
                 ans = exp.value();
                 String vstr = ans+"";
-                if (Math.round(ans)==ans){
+                if (vstr.charAt(vstr.length()-1)=='0' && vstr.charAt(vstr.length()-2)=='.'){
                     vstr=vstr.substring(0,vstr.length()-2);
                 }
                 display.setText("Ans: "+exp.toString() + " = " + vstr);
