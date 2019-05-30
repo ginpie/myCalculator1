@@ -31,6 +31,8 @@ public class Term2 {
                 return precision(Math.tan(_term2.value() * R_to_D), prec);
             case Cot:
                 return precision(1.0 / (Math.sin(_term2.value() * R_to_D)), prec);
+            case Ln:
+                return precision(Math.log(_term2.value()), prec);
             default:
                 return _term3.value();
         }

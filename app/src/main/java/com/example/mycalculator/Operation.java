@@ -4,14 +4,15 @@ public enum Operation {
     None (""),
     Add ("+"),
     Sub ("-"),
-    Mult ("*"),
-    Div ("/"),
+    Mult ("x"),
+    Div ("÷"),
     Sin ("sin"),
     Cos ("cos"),
     Tan ("tan"),
     Cot ("cot"),
     Power ("^"),
-    Factorial ("!");
+    Factorial ("!"),
+    Ln("ln");
 
     String op;
 

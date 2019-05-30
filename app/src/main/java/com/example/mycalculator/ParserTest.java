@@ -28,7 +28,8 @@ public class ParserTest {
                 "1+5!÷2",
                 "1.2 + 2.4",
                 "2.5 x 4.0",
-                "100xsin90+1.99÷1.99-2!"
+                "100xsin90+1.99÷1.99-2!",
+                "~6"
         };
         for(String equation : equations)
             parse(equation);

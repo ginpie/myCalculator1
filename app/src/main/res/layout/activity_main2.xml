@@ -9,6 +9,32 @@
     tools:context=".ScientificActivity"
     android:theme="@style/AppTheme.NoActionBar">
 
+    <Button
+        android:id="@+id/buttonLn"
+        android:layout_width="@dimen/dp58"
+        android:layout_height="@dimen/dp58"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/roundbutton"
+        android:onClick="doSubmit"
+        android:text="@string/ln"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonCos"
+        app:layout_constraintTop_toTopOf="@+id/buttonCos" />
+
+    <Button
+        android:id="@+id/buttonAns"
+        android:layout_width="@dimen/dp58"
+        android:layout_height="@dimen/dp58"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/roundbutton"
+        android:onClick="doSubmit"
+        android:text="@string/ans"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonCot"
+        app:layout_constraintTop_toTopOf="@+id/buttonCot" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
@@ -28,7 +54,7 @@
 
     <Button
         android:id="@+id/buttonClear"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -41,7 +67,7 @@
 
     <Button
         android:id="@+id/buttonInverse"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -54,7 +80,7 @@
 
     <Button
         android:id="@+id/buttonBackspace"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -67,7 +93,7 @@
 
     <Button
         android:id="@+id/buttonPlus"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -80,7 +106,7 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="37dp"
         android:layout_marginLeft="37dp"
@@ -96,7 +122,7 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -109,7 +135,7 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -122,7 +148,7 @@
 
     <Button
         android:id="@+id/buttonMinus"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -135,7 +161,7 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginTop="8dp"
         android:background="@drawable/roundbutton"
@@ -147,7 +173,7 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -160,7 +186,7 @@
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -173,7 +199,7 @@
 
     <Button
         android:id="@+id/buttonMultiply"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -186,7 +212,7 @@
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginTop="8dp"
         android:background="@drawable/roundbutton"
@@ -198,7 +224,7 @@
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -211,7 +237,7 @@
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -224,7 +250,7 @@
 
     <Button
         android:id="@+id/buttonDivide"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -237,7 +263,7 @@
 
     <Button
         android:id="@+id/button0"
-        android:layout_width="@dimen/dp152"
+        android:layout_width="@dimen/dp136"
         android:layout_height="@dimen/dp58"
         android:layout_marginTop="8dp"
         android:background="@drawable/roundbutton"
@@ -249,20 +275,18 @@
 
     <Button
         android:id="@+id/buttonDot"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:background="@drawable/roundbutton"
         android:onClick="doSubmit"
         android:text="@string/dot"
         android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/button0"
+        app:layout_constraintStart_toStartOf="@+id/button9"
         app:layout_constraintTop_toTopOf="@+id/button0" />
 
     <Button
         android:id="@+id/buttonEqual"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -275,7 +299,7 @@
 
     <Button
         android:id="@+id/buttonSin"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -288,7 +312,7 @@
 
     <Button
         android:id="@+id/buttonCos"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -302,7 +326,7 @@
 
     <Button
         android:id="@+id/buttonTan"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -315,7 +339,7 @@
 
     <Button
         android:id="@+id/buttonCot"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:background="@drawable/roundbutton"
         android:onClick="doSubmit"
@@ -326,38 +350,68 @@
 
     <Button
         android:id="@+id/buttonPower"
-        android:layout_width="@dimen/dp68"
-        android:layout_height="@dimen/dp58"
-        android:background="@drawable/roundbutton"
-        android:onClick="doSubmit"
-        android:text="^"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/buttonFactor"
-        app:layout_constraintTop_toTopOf="@+id/buttonSin" />
-
-    <Button
-        android:id="@+id/buttonFactor"
-        android:layout_width="@dimen/dp68"
+        android:layout_width="@dimen/dp58"
         android:layout_height="@dimen/dp58"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/roundbutton"
         android:onClick="doSubmit"
-        android:text="!"
+        android:text="@string/power"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonFactor"
+        app:layout_constraintTop_toTopOf="@+id/buttonFactor" />
+
+    <Button
+        android:id="@+id/buttonRightBracket"
+        android:layout_width="@dimen/dp58"
+        android:layout_height="@dimen/dp58"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/roundbutton"
+        android:onClick="doSubmit"
+        android:text="@string/rightbracket"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonLeftBracket"
+        app:layout_constraintTop_toTopOf="@+id/buttonLeftBracket" />
+
+    <Button
+        android:id="@+id/buttonLeftBracket"
+        android:layout_width="@dimen/dp58"
+        android:layout_height="@dimen/dp58"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/roundbutton"
+        android:onClick="doSubmit"
+        android:text="@string/leftbracket"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonSin"
+        app:layout_constraintTop_toTopOf="@+id/buttonSin" />
+
+    <Button
+        android:id="@+id/buttonFactor"
+        android:layout_width="@dimen/dp58"
+        android:layout_height="@dimen/dp58"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/roundbutton"
+        android:onClick="doSubmit"
+        android:text="@string/factorial"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/buttonTan"
         app:layout_constraintTop_toTopOf="@+id/buttonTan" />
 
     <Button
         android:id="@+id/jump1"
-        android:layout_width="@dimen/dp68"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/dp58"
+        android:layout_height="@dimen/dp58"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/roundbutton_pressed"
         android:onClick="doswitch"
-        android:text="Basic"
+        android:text="@string/basic"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/buttonPower"
-        app:layout_constraintTop_toTopOf="@+id/buttonCot" />
+        app:layout_constraintStart_toEndOf="@+id/buttonAns"
+        app:layout_constraintTop_toTopOf="@+id/button0" />
 
 
 </android.support.constraint.ConstraintLayout>

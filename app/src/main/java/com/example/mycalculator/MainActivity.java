@@ -31,6 +31,14 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
             display.setText(" ");
         }
         String now_show = display.getText().toString();
+//        // check if negative number exists
+//        for (int i = 0; i < now_show.length(); i++){
+//            if (now_show.charAt(i)=='-'){
+//                if (i==0 || Character.isDigit(now_show.charAt(i-1))){
+//                    break;
+//                }
+//            }
+//        }
 
         if (id==R.id.buttonEqual && !clear_flag) {
             Tokenizer tokenizer = new Tokenizer();
@@ -38,7 +46,12 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
             tokenizer.setBuffer(now_show);
             try {
                 Exp exp = parser.parse();
-                display.setText(exp.toString() + " = " + exp.value());
+                double v = exp.value();
+                String vstr = v+"";
+                if (Math.round(v)==v){
+                    vstr=vstr.substring(0,vstr.length()-2);
+                }
+                display.setText(exp.toString() + " = " + vstr);
             } catch (IllegalArgumentException e){
                 display.setText("Syntax Error!");
             } catch (ArithmeticException e){
@@ -82,24 +95,21 @@ public class MainActivity extends AppCompatActivity {//implements View.OnClickLi
                 display.setText(now_show + "-");break;
 
             case R.id.buttonBackspace:
-                now_show = now_show.substring(0,now_show.length()-1);
-                display.setText(now_show);break;
+                if (!now_show.isEmpty()) {
+                    if (now_show.charAt(now_show.length()-1) == 'n' || now_show.charAt(now_show.length()-1) == 's' ||
+                            now_show.charAt(now_show.length()-1) == 't'){
+                        now_show = now_show.substring(0, now_show.length() - 3);
+                    } else {
+                        now_show = now_show.substring(0, now_show.length() - 1);
+                    }
+                    display.setText(now_show);
+                }
+                break;
             case R.id.buttonClear:
                 now_show = "";
+                clear_flag=false;
                 display.setText(now_show);break;
 
-            case R.id.buttonSin:
-                display.setText(now_show + "sin");break;
-            case R.id.buttonCos:
-                display.setText(now_show + "cos");break;
-            case R.id.buttonTan:
-                display.setText(now_show + "tan");break;
-            case R.id.buttonCot:
-                display.setText(now_show + "cot");break;
-            case R.id.buttonPower:
-                display.setText(now_show + "^");break;
-            case R.id.buttonFactor:
-                display.setText(now_show + "!");break;
         }
     }
 

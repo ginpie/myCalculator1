@@ -8,7 +8,6 @@ public class TokenizerTest {
         while(tokenizer.hasNext()) {
             Token t = tokenizer.takeNext();
             System.out.print((t.type() == Token.Type.Lit ? t.token() : t.type()) + " ");
-
         }
         System.out.println();
     }
@@ -18,14 +17,14 @@ public class TokenizerTest {
         String[] equations = {"1.2 + 2 + ( 3 - 4)",
                 "(10 - 4 - 4 )",
                 "12 x (5 - 3 )",
-                "3 / (4 + 4) - 1",
+                "3 ÷ (4 + 4) - 1",
                 "sin 1 + 2",
                 "1+cot2^3!",
-                "1.2 + 4.5"
+                "1.2 + 4.5",
+                "~1+2"
         };
 
         for(String equation : equations)
             parse(equation);
     }
 }
-

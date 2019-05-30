@@ -1,7 +1,7 @@
 package com.example.mycalculator;
 
 public class Token {
-    public enum Type {Unknown, Lit, Add, Minus, Multiply, Divide, LeftBracket, RightBracket, Sin, Cos, Tan, Cot, Factorial, Power};
+    public enum Type {Unknown, Lit, Add, Minus, Multiply, Divide, LeftBracket, RightBracket, Sin, Cos, Tan, Cot, Factorial, Power, Ln};
     private String _token = "";
     private Type _type = Type.Unknown;
 

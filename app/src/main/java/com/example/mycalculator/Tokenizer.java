@@ -36,6 +36,7 @@ public class Tokenizer {
 
     // Method to extract next token
     private TokenResult nextToken() {
+
         _buffer = _buffer.trim(); // Remove whitespace
         if(_buffer.isEmpty())
             return null;
@@ -69,6 +70,19 @@ public class Tokenizer {
             if (firstChar=='c'){
                 return str.charAt(2) == 's' ? new TokenResult("cos", 3, Token.Type.Cos) : new TokenResult("cot", 3, Token.Type.Cot);
             }
+            if (firstChar=='l'){
+                return new TokenResult("ln",2, Token.Type.Ln);
+            }
+        }
+
+        if (firstChar=='~'){
+            String num = "-";
+            int i = 1;
+            while (i<_buffer.length() && (Character.isDigit(_buffer.charAt(i)) || _buffer.charAt(i)=='.')) {
+                num += "" + _buffer.charAt(i);
+                i++;
+            }
+            return new TokenResult(num, i, Token.Type.Lit);
         }
 
         if(Character.isDigit(firstChar)) {
@@ -77,7 +91,6 @@ public class Tokenizer {
             while (i<_buffer.length() && (Character.isDigit(_buffer.charAt(i)) || _buffer.charAt(i)=='.')) {
                 num += "" + _buffer.charAt(i);
                 i++;
-
             }
             return new TokenResult(num, i, Token.Type.Lit);
         }
@@ -101,6 +114,7 @@ public class Tokenizer {
     // Return the next token in the buffer (without removing it)
     public Token next() {
         TokenResult nextResult = nextToken();
+        System.out.println("next result: "+nextResult.data + " buffer: "+ _buffer);
         if(nextResult==null)
             return null;
         return new Token(nextResult.data, nextResult.type);

@@ -28,4 +28,11 @@
     <string name="cos">Cos</string>
     <string name="tan">Tan</string>
     <string name="cot">Cot</string>
+    <string name="ln">ln</string>
+    <string name="ans">Ans</string>
+    <string name="power">^</string>
+    <string name="rightbracket">)</string>
+    <string name="leftbracket">(</string>
+    <string name="factorial">!</string>
+    <string name="basic">Basic</string>
 </resources>

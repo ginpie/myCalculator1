@@ -3,7 +3,7 @@ package com.example.mycalculator;
 /*
  <exp>      ::= <term1> | <exp> + <term> | <exp> - <term>
  <term1>    ::= <term2> | <term1> * <term2> | <term1> / <term2>
- <term2>    ::= <term3> | sin <term2> | cos <term2> | tan <term2> | cot <term2>
+ <term2>    ::= <term3> | sin <term2> | cos <term2> | tan <term2> | cot <term2> | ln <term2>
  <term3>    ::= <term4> | <term3> ^ term4
  <term4>    ::= <factor> | <term4>!
  <factor>   ::= <integer lit> | ( <exp> )
@@ -18,12 +18,19 @@ public class Parser {
     }
 
     public Exp parse() {
+        if (_tokenizer.hasNext() && (_tokenizer.next().type()==Token.Type.Add || _tokenizer.next().type()==Token.Type.Minus
+                || _tokenizer.next().type()==Token.Type.Multiply || _tokenizer.next().type()==Token.Type.Divide)){
+            throw new IllegalArgumentException("Syntax Error!");
+        }
         // Parse term1
         Exp exp = new Exp(parseTerm1());
+
+
         // Check if more term1s to parse
         while (_tokenizer.hasNext() &&  (_tokenizer.next().type() == Token.Type.Add
                 || _tokenizer.next().type() == Token.Type.Minus)) {
             Token.Type op = _tokenizer.takeNext().type();
+            // if
             if (!_tokenizer.hasNext() || _tokenizer.next().type()==Token.Type.Add || _tokenizer.next().type()==Token.Type.Minus
                     || _tokenizer.next().type()==Token.Type.Multiply || _tokenizer.next().type()==Token.Type.Divide){
                 throw new IllegalArgumentException("Syntax Error!");
@@ -70,6 +77,9 @@ public class Parser {
             if (op == Token.Type.Cot) {
                 return new Term2(parseTerm2(), Operation.Cot);
             }
+            if (op == Token.Type.Ln) {
+                return new Term2(parseTerm2(), Operation.Ln);
+            }
         }
         return new Term2(parseTerm3());
     }
@@ -78,6 +88,11 @@ public class Parser {
         Term3 term3 = new Term3(parseTerm4());
         while (_tokenizer.hasNext() && (_tokenizer.next().type() == Token.Type.Power)) {
             _tokenizer.takeNext();
+            if (!_tokenizer.hasNext() || _tokenizer.next().type()==Token.Type.RightBracket || _tokenizer.next().type()==Token.Type.Power
+            ||  _tokenizer.next().type()==Token.Type.Add ||  _tokenizer.next().type()==Token.Type.Minus ||  _tokenizer.next().type()==Token.Type.Multiply
+            ||  _tokenizer.next().type()==Token.Type.Divide){
+                throw new IllegalArgumentException("Syntax Error!");
+            }
             term3 = new Term3(term3, Operation.Power, parseTerm4());
         }
         return term3;
@@ -100,11 +115,14 @@ public class Parser {
     public Factor parseFactor() {
         while (_tokenizer.hasNext()) {
             if (_tokenizer.next().type() == Token.Type.Lit) {
+                System.out.println("Parser: " + _tokenizer.next().token() + " "+Double.parseDouble(_tokenizer.next().token()) );
                 Lit lit = new Lit(Double.parseDouble(_tokenizer.takeNext().token()));
 
                 // check if trigonometric function happens after numbers
                 if (_tokenizer.hasNext()){
-                    if (_tokenizer.next().type()==Token.Type.Sin || _tokenizer.next().type()==Token.Type.Cos || _tokenizer.next().type()==Token.Type.Tan || _tokenizer.next().type()==Token.Type.Cot) {
+                    if (_tokenizer.next().type()==Token.Type.Sin || _tokenizer.next().type()==Token.Type.Cos
+                            || _tokenizer.next().type()==Token.Type.Tan || _tokenizer.next().type()==Token.Type.Cot
+                            || _tokenizer.next().type()==Token.Type.LeftBracket) {
                         throw new IllegalArgumentException("Syntax Error!");
                     }
                 }

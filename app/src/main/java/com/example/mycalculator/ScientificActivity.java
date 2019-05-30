@@ -10,9 +10,8 @@ import android.widget.TextView;
 
 public class ScientificActivity extends AppCompatActivity {
     private TextView display;
-    private String expression = "";
     private boolean clear_flag = false;
-    private int countOperate = 2;
+    private double ans = 0.0;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -60,7 +59,12 @@ public class ScientificActivity extends AppCompatActivity {
             tokenizer.setBuffer(now_show);
             try {
                 Exp exp = parser.parse();
-                display.setText(exp.toString() + " = " + exp.value());
+                ans = exp.value();
+                String vstr = ans+"";
+                if (Math.round(ans)==ans){
+                    vstr=vstr.substring(0,vstr.length()-2);
+                }
+                display.setText("Ans: "+exp.toString() + " = " + vstr);
             } catch (IllegalArgumentException e){
                 display.setText("Syntax Error!");
             } catch (ArithmeticException e){
@@ -94,6 +98,11 @@ public class ScientificActivity extends AppCompatActivity {
             case R.id.buttonDot:
                 display.setText(now_show + ".");break;
 
+            case R.id.buttonLeftBracket:
+                display.setText(now_show + "(");break;
+            case R.id.buttonRightBracket:
+                display.setText(now_show + ")");break;
+
             case R.id.buttonMultiply:
                 display.setText(now_show + "x");break;
             case R.id.buttonDivide:
@@ -104,10 +113,19 @@ public class ScientificActivity extends AppCompatActivity {
                 display.setText(now_show + "-");break;
 
             case R.id.buttonBackspace:
-                now_show = now_show.substring(0,now_show.length()-1);
-                display.setText(now_show);break;
+                if (!now_show.isEmpty()) {
+                    if (now_show.charAt(now_show.length()-1) == 'n' || now_show.charAt(now_show.length()-1) == 's' ||
+                            now_show.charAt(now_show.length()-1) == 't'){
+                        now_show = now_show.substring(0, now_show.length() - 3);
+                    } else {
+                        now_show = now_show.substring(0, now_show.length() - 1);
+                    }
+                    display.setText(now_show);
+                }
+                break;
             case R.id.buttonClear:
                 now_show = "";
+                clear_flag=false;
                 display.setText(now_show);break;
 
             case R.id.buttonSin:
@@ -118,10 +136,24 @@ public class ScientificActivity extends AppCompatActivity {
                 display.setText(now_show + "tan");break;
             case R.id.buttonCot:
                 display.setText(now_show + "cot");break;
+            case R.id.buttonLn:
+                display.setText(now_show + "ln");break;
             case R.id.buttonPower:
                 display.setText(now_show + "^");break;
             case R.id.buttonFactor:
                 display.setText(now_show + "!");break;
+
+            case R.id.buttonInverse:
+                if (clear_flag){
+                    now_show = "~"+ans;
+                } else {
+                    now_show = now_show+"~";
+                }
+                display.setText(now_show);break;
+
+            case R.id.buttonAns:
+                now_show += ans;
+                display.setText(now_show);break;
         }
     }
 
